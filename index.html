@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Raina ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#030006;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   STAR SKY
+========================= */
+
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:
+        radial-gradient(circle at center,#300020,#050006 65%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    transition:1.5s;
+}
+
+.intro-content{
+    position:relative;
+    z-index:5;
+}
+
+.intro-small{
+    letter-spacing:7px;
+    font-size:12px;
+    opacity:.8;
+    margin-bottom:25px;
+}
+
+.intro-date{
+    color:#ff9fc5;
+    letter-spacing:7px;
+    margin-bottom:15px;
+}
+
+.intro-name{
+    font-size:clamp(65px,16vw,150px);
+    font-weight:bold;
+    letter-spacing:10px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ff6f9f,
+        #fff,
+        #ff9fc5
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:shine 4s infinite;
+}
+
+.intro-line{
+    margin:25px 0;
+    opacity:.8;
+    letter-spacing:3px;
+}
+
+.enter{
+    padding:16px 35px;
+    border:1px solid white;
+    border-radius:50px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.enter:hover{
+    background:white;
+    color:#ff4d88;
+    transform:scale(1.1);
+    box-shadow:0 0 40px #ff4d88;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main{
+    display:none;
+    position:relative;
+    z-index:1;
+}
+
+section{
+    min-height:80vh;
+    padding:100px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at center,#4d103d,#08000b 70%);
+}
+
+.cake{
+    font-size:100px;
+    animation:bounce 2s infinite;
+}
+
+h1{
+    font-size:clamp(42px,9vw,90px);
+    margin:20px 0;
+}
+
+.name{
+    color:#ff9fc5;
+}
+
+.subtitle{
+    max-width:700px;
+    line-height:1.8;
+    opacity:.85;
+    font-size:18px;
+}
+
+button{
+    border:0;
+    padding:15px 28px;
+    margin:12px;
+    border-radius:40px;
+    background:white;
+    color:#e83270;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff6f9f;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    padding:0;
+    z-index:9000;
+    border-radius:50%;
+    animation:pulse 2s infinite;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.card{
+    width:min(750px,92%);
+    padding:35px;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+/* =========================
+   LETTER
+========================= */
+
+.envelope{
+    width:280px;
+    height:180px;
+    background:#f6d5df;
+    border-radius:10px;
+    margin:30px;
+    cursor:pointer;
+    position:relative;
+    box-shadow:0 20px 60px rgba(255,80,130,.2);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:100px solid #e8b6c7;
+    transform-origin:top;
+    transition:1s;
+}
+
+.envelope.open:before{
+    transform:rotateX(180deg);
+}
+
+.seal{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#d92f66;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+}
+
+.letter{
+    display:none;
+    max-width:750px;
+    padding:35px;
+    text-align:left;
+    line-height:1.9;
+    white-space:pre-line;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story{
+    max-width:700px;
+    width:90%;
+    margin:15px;
+    padding:25px;
+    border-left:4px solid #ff6d9f;
+    background:rgba(255,255,255,.06);
+    border-radius:0 25px 25px 0;
+    text-align:left;
+    transition:.4s;
+}
+
+.story:hover{
+    transform:translateX(10px);
+}
+
+/* =========================
+   REASONS
+========================= */
+
+.reasons{
+    width:min(1000px,95%);
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.reason{
+    padding:30px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.07);
+    transition:.4s;
+}
+
+.reason:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(255,70,130,.25);
+}
+
+.reason-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz{
+    max-width:600px;
+    width:90%;
+}
+
+.quiz-question{
+    font-size:25px;
+    margin:25px;
+}
+
+.quiz-option{
+    display:block;
+    width:100%;
+    margin:10px 0;
+}
+
+/* =========================
+   SECRET
+========================= */
+
+.secret-input{
+    padding:16px 25px;
+    width:min(400px,90%);
+    border:0;
+    border-radius:40px;
+    text-align:center;
+    outline:none;
+    font-size:16px;
+}
+
+#secret{
+    display:none;
+    margin-top:25px;
+    animation:pop 1s;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift{
+    font-size:130px;
+    cursor:pointer;
+    animation:shake 1.5s infinite;
+}
+
+#giftReveal{
+    display:none;
+    max-width:650px;
+    font-size:21px;
+    line-height:1.9;
+    animation:pop 1s;
+}
+
+/* =========================
+   QUEEN
+========================= */
+
+.queen{
+    font-size:90px;
+    animation:queen 2s infinite alternate;
+}
+
+.crown{
+    font-size:65px;
+}
+
+/* =========================
+   RANDOM MESSAGE
+========================= */
+
+.random-message{
+    min-height:80px;
+    font-size:22px;
+    color:#ffabc8;
+    max-width:600px;
+}
+
+/* =========================
+   FIREWORK
+========================= */
+
+.firework{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    z-index:9999;
+    pointer-events:none;
+    animation:explode 1.5s forwards;
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    z-index:5000;
+    pointer-events:none;
+    animation:float 6s linear forwards;
+}
+
+/* =========================
+   SPARKLE
+========================= */
+
+.sparkle{
+    position:fixed;
+    pointer-events:none;
+    z-index:99999;
+    animation:spark .8s forwards;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    min-height:100vh;
+    background:#000;
+}
+
+.final h2{
+    font-size:clamp(40px,10vw,90px);
+}
+
+.final p{
+    margin:15px;
+    letter-spacing:4px;
+    opacity:.7;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes shine{
+    0%{background-position:0}
+    50%{background-position:100%}
+    100%{background-position:0}
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-20px)}
+}
+
+@keyframes pulse{
+    50%{box-shadow:0 0 30px #ff4d88}
+}
+
+@keyframes pop{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes shake{
+    0%,100%{transform:rotate(0)}
+    25%{transform:rotate(-8deg)}
+    75%{transform:rotate(8deg)}
+}
+
+@keyframes queen{
+    from{transform:scale(1)}
+    to{transform:scale(1.12)}
+}
+
+@keyframes twinkle{
+    from{opacity:.2}
+    to{opacity:1}
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+@keyframes explode{
+    from{
+        transform:translate(0,0) scale(1);
+        opacity:1;
+    }
+    to{
+        transform:
+        translate(
+            calc(var(--x)*1vw),
+            calc(var(--y)*1vh)
+        )
+        scale(0);
+        opacity:0;
+    }
+}
+
+@keyframes spark{
+    from{
+        transform:scale(1);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-40px) scale(0);
+        opacity:0;
+    }
+}
+
+@media(max-width:600px){
+
+    .intro-name{
+        letter-spacing:5px;
+    }
+
+    .cake{
+        font-size:75px;
+    }
+
+    .card{
+        padding:25px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- STAR BACKGROUND -->
+<div id="stars"></div>
+
+<!-- =========================
+     CINEMATIC INTRO
+========================= -->
+
+<div id="intro">
+
+<div class="intro-content">
+
+<div class="intro-small">
+A SPECIAL MESSAGE FOR
+</div>
+
+<div class="intro-date">
+02 • 09 • 2026
+</div>
+
+<div class="intro-name">
+RAINA
+</div>
+
+<div class="intro-line">
+THE WORLD GOT A LITTLE BRIGHTER THAT DAY ✨
+</div>
+
+<button class="enter" onclick="enterSite()">
+ENTER THE SURPRISE ❤️
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div id="main">
+
+<audio id="music" loop>
+<source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()">🎵</button>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="cake">🎂</div>
+
+<h1>
+Happy Birthday
+<br>
+<span class="name">Raina</span> ❤️
+</h1>
+
+<p class="subtitle">
+Today isn't just another day.
+<br>
+Today is the day the world got you. ✨
+</p>
+
+<button onclick="startMagic()">
+🎉 Start The Magic
+</button>
+
+</div>
+
+</section>
+
+
+<!-- RANDOM MESSAGE -->
+
+<section>
+
+<div class="card">
+
+<h2>💬 A Little Message</h2>
+
+<br>
+
+<div
+id="randomMessage"
+class="random-message">
+
+Click the button below 👇
+
+</div>
+
+<button onclick="randomMessage()">
+✨ Tell Me Something
+</button>
+
+</div>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section>
+
+<h2>💌 A Letter For You</h2>
+
+<p class="subtitle">
+Someone wrote something just for you...
+</p>
+
+<div
+class="envelope"
+id="envelope"
+onclick="openLetter()">
+
+<div class="seal">
+❤️
+</div>
+
+</div>
+
+<div
+class="card letter"
+id="letter">
+
+<p id="typing"></p>
+
+</div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section>
+
+<h2>🎞️ Our Little Story</h2>
+
+<br>
+
+<div class="story">
+<h3>✨ Chapter 01</h3>
+<br>
+<p>
+Some people enter your life and somehow ordinary moments become special.
+</p>
+</div>
+
+<div class="story">
+<h3>🌸 Chapter 02</h3>
+<br>
+<p>
+Then come the jokes, conversations, memories and random moments that stay forever.
+</p>
+</div>
+
+<div class="story">
+<h3>❤️ Chapter 03</h3>
+<br>
+<p>
+Eventually, you realize that person isn't just another person anymore.
+</p>
+</div>
+
+<div class="story">
+<h3>🎂 Chapter 04</h3>
+<br>
+<p>
+And today, the main character is YOU.
+</p>
+</div>
+
+</section>
+
+
+<!-- REASONS -->
+
+<section>
+
+<h2>💖 Why You're Special</h2>
+
+<br>
+
+<div class="reasons">
+
+<div class="reason">
+<div class="reason-icon">😊</div>
+<h3>Your Smile</h3>
+<br>
+<p>
+It can make everything feel a little better.
+</p>
+</div>
+
+<div class="reason">
+<div class="reason-icon">😂</div>
+<h3>Your Madness</h3>
+<br>
+<p>
+Life would honestly be boring without it.
+</p>
+</div>
+
+<div class="reason">
+<div class="reason-icon">✨</div>
+<h3>Your Vibe</h3>
+<br>
+<p>
+There is simply something different about you.
+</p>
+</div>
+
+<div class="reason">
+<div class="reason-icon">🌷</div>
+<h3>Your Heart</h3>
+<br>
+<p>
+You care more than you probably realize.
+</p>
+</div>
+
+<div class="reason">
+<div class="reason-icon">💫</div>
+<h3>Your Energy</h3>
+<br>
+<p>
+You make ordinary moments memorable.
+</p>
+</div>
+
+<div class="reason">
+<div class="reason-icon">❤️</div>
+<h3>Just You</h3>
+<br>
+<p>
+You don't need a reason to be special.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section>
+
+<h2>🎮 How Well Do You Know Yourself?</h2>
+
+<br>
+
+<div class="card quiz">
+
+<div class="quiz-question">
+Who is the birthday queen today? 👑
+</div>
+
+<button
+class="quiz-option"
+onclick="quizCorrect()">
+Raina ❤️
+</button>
+
+<button
+class="quiz-option"
+onclick="quizWrong()">
+Someone else 😂
+</button>
+
+<button
+class="quiz-option"
+onclick="quizWrong()">
+The cake 🎂
+</button>
+
+<p id="quizResult"></p>
+
+</div>
+
+</section>
+
+
+<!-- SECRET -->
+
+<section>
+
+<h2>🔐 Secret Room</h2>
+
+<p class="subtitle">
+There is something hidden here...
+<br>
+Only someone special knows the password. 👀
+</p>
+
+<br>
+
+<input
+id="password"
+class="secret-input"
+placeholder="Enter the secret password">
+
+<br>
+
+<button onclick="unlockSecret()">
+🔓 Unlock
+</button>
+
+<div id="secret">
+
+<div class="card">
+
+<h2>🥹 YOU FOUND IT!</h2>
+
+<br>
+
+<p>
+Okayyy Pyari Chudail 😂❤️
+<br><br>
+
+This secret was obviously meant for you.
+<br><br>
+
+You are genuinely one of those people who make life more interesting just by being around.
+<br><br>
+
+Never forget that. ✨
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUEEN -->
+
+<section>
+
+<div class="crown">
+👑
+</div>
+
+<div class="queen">
+👸
+</div>
+
+<h2>
+Birthday Queen
+</h2>
+
+<p class="subtitle">
+The crown officially belongs to Raina today.
+</p>
+
+<button onclick="queenReveal()">
+👑 Accept The Crown
+</button>
+
+<p id="queenMessage"></p>
+
+</section>
+
+
+<!-- GIFT -->
+
+<section>
+
+<h2>🎁 One Last Gift</h2>
+
+<p class="subtitle">
+Something is waiting inside...
+</p>
+
+<div
+class="gift"
+onclick="openGift()">
+
+🎁
+
+</div>
+
+<div id="giftReveal">
+
+<div class="card">
+
+<h2>🎉 SURPRISE!</h2>
+
+<br>
+
+<p>
+Raina,
+<br><br>
+
+I hope this little corner of the internet made you smile.
+<br><br>
+
+I hope your new year is filled with happiness,
+crazy adventures, peaceful moments,
+beautiful memories and people who genuinely care about you.
+<br><br>
+
+Keep smiling.
+Keep being crazy.
+Keep being YOU. ❤️
+<br><br>
+
+You deserve a beautiful year ahead. ✨
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FIREWORKS -->
+
+<section>
+
+<h2>🎆 LIGHT UP THE SKY</h2>
+
+<p class="subtitle">
+Because one birthday celebration isn't enough.
+</p>
+
+<button onclick="fireworks()">
+🎆 FIREWORKS
+</button>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+<h2>
+HAPPY BIRTHDAY
+</h2>
+
+<h2 class="name">
+RAINA ❤️
+</h2>
+
+<br>
+
+<p>
+02 • 09 • 2026
+</p>
+
+<p>
+THE BIRTHDAY QUEEN 👑
+</p>
+
+<p>
+Made specially for you.
+</p>
+
+<br>
+
+<button onclick="finalMagic()">
+✨ ONE LAST SURPRISE
+</button>
+
+<p id="finalMessage"></p>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* =========================
+   STARS
+========================= */
+
+const stars =
+document.getElementById("stars");
+
+for(let i=0;i<180;i++){
+
+const star =
+document.createElement("div");
+
+star.className="star";
+
+star.style.left =
+Math.random()*100+"vw";
+
+star.style.top =
+Math.random()*100+"vh";
+
+star.style.animationDelay =
+Math.random()*3+"s";
+
+star.style.opacity =
+Math.random();
+
+stars.appendChild(star);
+
+}
+
+
+/* =========================
+   ENTER
+========================= */
+
+function enterSite(){
+
+const intro =
+document.getElementById("intro");
+
+intro.style.opacity="0";
+
+setTimeout(()=>{
+
+intro.style.display="none";
+
+document.getElementById("main")
+.style.display="block";
+
+startMagic();
+
+},1500);
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+let playing=false;
+
+function toggleMusic(){
+
+const music =
+document.getElementById("music");
+
+if(!playing){
+
+music.play().catch(()=>{});
+
+playing=true;
+
+}else{
+
+music.pause();
+
+playing=false;
+
+}
+
+}
+
+
+/* =========================
+   MAGIC
+========================= */
+
+function startMagic(){
+
+for(let i=0;i<30;i++){
+createHeart();
+}
+
+createConfetti();
+
+const music =
+document.getElementById("music");
+
+music.play().catch(()=>{});
+
+playing=true;
+
+}
+
+
+/* =========================
+   RANDOM MESSAGES
+========================= */
+
+const messages=[
+
+"Raina, you're genuinely one of a kind. ❤️",
+
+"Reminder: today you are legally allowed to eat unlimited cake. 😂🎂",
+
+"Someone somewhere is very lucky to know you. ✨",
+
+"Your smile deserves its own birthday celebration. 🌸",
+
+"Today's main character? Obviously Raina. 👑",
+
+"Don't forget to make a wish. Maybe it will come true. 💫",
+
+"Pyari Chudail officially turns another year more awesome. 😂❤️"
+
+];
+
+function randomMessage(){
+
+const box =
+document.getElementById("randomMessage");
+
+box.innerText =
+messages[
+Math.floor(Math.random()*messages.length)
+];
+
+createHeart();
+
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+const message=`Hey Raina! ❤️
+
+Happy Birthdayyyy! 🎂🎉
+
+Today is your day, so I wanted to create something that feels a little more special than just saying "Happy Birthday".
+
+I hope this new chapter of your life brings you everything you've been wishing for.
+
+More happiness.
+More laughter.
+More adventures.
+More beautiful memories.
+
+I hope you keep smiling even on the days when things aren't perfect.
+
+Keep being the same crazy, caring, funny and amazing person you are.
+
+Some people make ordinary moments feel special.
+
+You're one of those people.
+
+So today, forget everything else for a while.
+
+Enjoy your day.
+Eat the cake.
+Laugh loudly.
+Make memories.
+And let yourself be celebrated. ❤️
+
+Happy Birthday once again, Raina.
+
+Stay happy.
+Stay crazy.
+Stay you.
+
+And yes...
+
+Happy Birthday, Pyari Chudail. 😂❤️🎂`;
+
+let index=0;
+
+function openLetter(){
+
+document
+.getElementById("envelope")
+.classList.add("open");
+
+setTimeout(()=>{
+
+const letter =
+document.getElementById("letter");
+
+letter.style.display="block";
+
+index=0;
+
+document
+.getElementById("typing")
+.innerHTML="";
+
+typeWriter();
+
+},700);
+
+}
+
+function typeWriter(){
+
+if(index<message.length){
+
+document
+.getElementById("typing")
+.innerHTML +=
+message.charAt(index);
+
+index++;
+
+setTimeout(typeWriter,25);
+
+}
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function quizCorrect(){
+
+document
+.getElementById("quizResult")
+.innerHTML=
+"🎉 CORRECT! Obviously Raina is the birthday queen! 👑❤️";
+
+createConfetti();
+
+}
+
+function quizWrong(){
+
+document
+.getElementById("quizResult")
+.innerHTML=
+"😂 WRONG! Try again. You know the answer!";
+
+}
+
+
+/* =========================
+   SECRET
+========================= */
+
+function unlockSecret(){
+
+const password =
+document.getElementById("password")
+.value
+.toLowerCase()
+.trim();
+
+if(password==="pyari chudail"){
+
+document
+.getElementById("secret")
+.style.display="block";
+
+createConfetti();
+
+for(let i=0;i<30;i++){
+createHeart();
+}
+
+}else{
+
+alert(
+"Wrong password 😂 Try again, Pyari Chudail!"
+);
+
+}
+
+}
+
+
+/* =========================
+   QUEEN
+========================= */
+
+function queenReveal(){
+
+document
+.getElementById("queenMessage")
+.innerHTML=
+"👑 Crown accepted! Raina is officially the Birthday Queen! ❤️";
+
+createConfetti();
+
+for(let i=0;i<20;i++){
+createHeart();
+}
+
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+function openGift(){
+
+document
+.getElementById("giftReveal")
+.style.display="block";
+
+createConfetti();
+
+for(let i=0;i<40;i++){
+createHeart();
+}
+
+}
+
+
+/* =========================
+   HEARTS
+========================= */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.className="heart";
+
+const list=[
+"❤️","💖","💕","💗",
+"💓","💝","🌹","✨"
+];
+
+heart.innerHTML=
+list[Math.floor(Math.random()*list.length)];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+(15+Math.random()*30)+"px";
+
+heart.style.animationDuration=
+(4+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti(){
+
+for(let i=0;i<150;i++){
+
+const piece =
+document.createElement("div");
+
+piece.style.position="fixed";
+piece.style.top="-20px";
+
+piece.style.left=
+Math.random()*100+"vw";
+
+piece.style.width=
+(5+Math.random()*8)+"px";
+
+piece.style.height=
+(5+Math.random()*8)+"px";
+
+piece.style.background=
+`hsl(${Math.random()*360},100%,60%)`;
+
+piece.style.zIndex="99999";
+
+piece.style.transition="4s";
+
+document.body.appendChild(piece);
+
+setTimeout(() => {
+    piece.style.transform =
+        `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 720}deg)`;
+    piece.style.opacity = "0";
+}, 50);
+
+setTimeout(() => {
+    piece.remove();
+}, 4500);
+
+}
+
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
+
+function fireworks(){
+
+for(let i = 0; i < 8; i++){
+
+setTimeout(() => {
+
+const x = 15 + Math.random() * 70;
+const y = 15 + Math.random() * 50;
+
+for(let j = 0; j < 35; j++){
+
+const fire =
+document.createElement("div");
+
+fire.className = "firework";
+
+fire.style.left = x + "vw";
+fire.style.top = y + "vh";
+
+fire.style.setProperty(
+"--x",
+(Math.random() - 0.5) * 80
+);
+
+fire.style.setProperty(
+"--y",
+(Math.random() - 0.5) * 80
+);
+
+fire.style.background =
+`hsl(${Math.random() * 360},100%,65%)`;
+
+document.body.appendChild(fire);
+
+setTimeout(() => {
+    fire.remove();
+}, 1600);
+
+}
+
+}, i * 400);
+
+}
+
+createConfetti();
+
+}
+
+
+/* =========================
+   FINAL MAGIC
+========================= */
+
+function finalMagic(){
+
+document.getElementById("finalMessage").innerHTML =
+"🥹❤️ You reached the end... but hopefully this isn't the end of the memories. Happy Birthday, Raina! 🎂✨";
+
+for(let i = 0; i < 80; i++){
+    createHeart();
+}
+
+fireworks();
+createConfetti();
+
+}
+
+
+/* =========================
+   SPARKLE CLICK EFFECT
+========================= */
+
+document.addEventListener("click", function(e){
+
+const sparkle =
+document.createElement("div");
+
+sparkle.className = "sparkle";
+sparkle.innerHTML = "✨";
+
+sparkle.style.left = e.clientX + "px";
+sparkle.style.top = e.clientY + "px";
+
+document.body.appendChild(sparkle);
+
+setTimeout(() => {
+    sparkle.remove();
+}, 800);
+
+});
+
+
+</script>
+
+</body>
+</html>
